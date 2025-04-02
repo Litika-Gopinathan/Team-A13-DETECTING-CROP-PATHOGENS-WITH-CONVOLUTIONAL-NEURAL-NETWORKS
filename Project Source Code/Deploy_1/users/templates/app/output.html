@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Pathogen Classification</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url(https://images.unsplash.com/photo-1506748686214e9df14a9) no-repeat center center fixed;
+            background-size: cover;
+            color: #fff; /* Default text color to white for better contrast */
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            color: #fff; /* White color for better visibility on dark background */
+        }
+        
+        .section-content {
+            font-size: 1.125rem;
+            margin-top: 0.75rem;
+            color: #e2e8f0; /* Lighter gray for better readability */
+        }
+        
+        .content-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+            border-radius: 1rem;
+        }
+        
+        .bg-white {
+            background-color: #adc9e9; /* Bright blue color for accents */
+        }
+        
+        .shadow-md {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+        }
+        
+        .rounded-lg {
+            border-radius: 0.75rem; /* Slightly larger radius for modern look */
+        }
+        
+        .p-6 {
+            padding: 2rem; /* Increased padding for better spacing */
+        }
+        
+        .mb-6 {
+            margin-bottom: 2rem; /* Increased bottom margin for more space between sections */
+        }
+        
+        .text-2xl {
+            font-size: 2rem; /* Larger font size for emphasis */
+        }
+        
+        .font-bold {
+            font-weight: 800; /* Bolder text for titles and important content */
+        }
+        
+        .text-gray-800 {
+            color: #f7fafc; /* Lighter gray for text */
+        }
+        
+        .text-gray-700 {
+            color: #edf2f7; /* Even lighter gray for less prominent text */
+        }
+    </style>
+    
+</head>
+<body class="bg-gray-100">
+    <div class="card bg-white shadow-lg rounded-lg p-6">
+        <div class="card-content text-center">
+            <center>
+            <h1 class="text-3xl font-bold mb-4">{{ predict | upper }}</h1>
+            
+                <img src="{{ obj.image.url }}" alt="Input Images" class="mb-4 mx-auto rounded-lg shadow-md" style="height: 250px; width: auto;">
+
+           
+
+            <p class="text-lg font-semibold">{{ predict | upper }}</p>
+        </center>
+        </div>
+    </div>
+
+    {% if obj %}
+        <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+            <h1 class="text-2xl font-bold mb-4">Plant Pathogen Classification</h1>
+            <div>
+            {% if predict == 'Anthracnose' %}
+                <h2 class="section-title">Description</h2>
+                <p class="section-content">Anthracnose is a group of fungal diseases affecting a variety of plants, including trees, shrubs, and flowers. The disease is characterized by dark, sunken lesions on leaves, stems, and fruits. These lesions often have a characteristic border and can lead to significant plant damage if not managed properly.</p>
+
+                <h2 class="section-title">Causes</h2>
+                <p class="section-content">Anthracnose is caused by several species of fungi, including Colletotrichum and Glomerella. These fungi thrive in warm, moist conditions and infect plants through wounds or natural openings.</p>
+
+                <h2 class="section-title">Prevention</h2>
+                <p class="section-content">To prevent anthracnose, avoid overhead irrigation, use resistant plant varieties, and remove infected plant debris. Ensuring proper air circulation and spacing between plants can also reduce the risk of infection.</p>
+
+                <h2 class="section-title">Precautions</h2>
+                <p class="section-content">Monitor plants regularly for early signs of disease, and avoid wetting foliage to minimize the spread of the fungus. Sanitize gardening tools and equipment to prevent the spread of spores.</p>
+
+                <h2 class="section-title">Treatment</h2>
+                <p class="section-content">Apply appropriate fungicides at the first sign of infection. Regularly inspect plants and remove any infected parts to limit the spread of the disease.</p>
+
+                <h2 class="section-title">Recovery</h2>
+                <p class="section-content">Recovery involves improving plant health through proper watering, fertilization, and pruning practices. Monitoring and managing the environment to prevent reoccurrence is also crucial.</p>
+
+                <h2 class="section-title">Disease Stages</h2>
+                <p class="section-content">The disease progresses from small, water-soaked spots to larger, sunken lesions. In severe cases, the lesions can coalesce and cause significant damage to plant tissues.</p>
+
+                <h2 class="section-title">Attack Level</h2>
+                <p class="section-content">Attack levels can range from minor leaf spotting to severe fruit and stem damage, depending on environmental conditions and plant susceptibility.</p>
+
+            {% elif predict == 'Apple_Scab' %}
+                <h2 class="section-title">Description</h2>
+                <p class="section-content">Apple scab is a common fungal disease affecting apple and crabapple trees, causing dark, sunken lesions on leaves and fruits. The disease can lead to premature leaf drop and reduce fruit quality and yield.</p>
+
+                <h2 class="section-title">Causes</h2>
+                <p class="section-content">The disease is caused by the fungus Venturia inaequalis. It spreads during wet weather, infecting young leaves and fruit through wounds or natural openings.</p>
+
+                <h2 class="section-title">Prevention</h2>
+                <p class="section-content">Prevent apple scab by using resistant apple varieties, ensuring proper tree spacing to improve air circulation, and applying fungicides during critical infection periods.</p>
+
+                <h2 class="section-title">Precautions</h2>
+                <p class="section-content">Remove fallen leaves and fruit to reduce sources of infection. Avoid overhead irrigation to minimize moisture on the foliage.</p>
+
+                <h2 class="section-title">Treatment</h2>
+                <p class="section-content">Apply fungicides as a preventive measure, especially during periods of high infection risk. Remove and destroy infected plant parts to prevent further spread.</p>
+
+                <h2 class="section-title">Recovery</h2>
+                <p class="section-content">Recovery involves regular monitoring and maintaining good orchard hygiene. Ensure proper plant care to help trees recover and prevent future infections.</p>
+
+                <h2 class="section-title">Disease Stages</h2>
+                <p class="section-content">The disease begins with small, dark spots on leaves and fruit. Over time, these spots enlarge and become sunken, eventually leading to leaf drop and fruit degradation.</p>
+
+                <h2 class="section-title">Attack Level</h2>
+                <p class="section-content">Attack levels can vary from minor leaf spotting to severe fruit lesions, affecting both fruit quality and tree health.</p>
+
+            {% elif predict == 'Botrytis' %}
+                <h2 class="section-title">Description</h2>
+                <p class="section-content">Botrytis, or gray mold, is a fungal disease that causes a gray, fuzzy mold on fruits, flowers, and leaves. It is particularly common in humid conditions and can significantly affect crop yield and quality.</p>
+
+                <h2 class="section-title">Causes</h2>
+                <p class="section-content">The disease is caused by the fungus Botrytis cinerea, which thrives in cool, damp environments. It infects plants through wounds or natural openings.</p>
+
+                <h2 class="section-title">Prevention</h2>
+                <p class="section-content">Improve air circulation around plants, avoid overcrowding, and ensure proper sanitation. Reducing humidity levels and avoiding late-season irrigation can also help prevent botrytis infections.</p>
+
+                <h2 class="section-title">Precautions</h2>
+                <p class="section-content">Monitor plants regularly for signs of infection, and take action to reduce humidity around plants. Remove infected plant parts promptly to minimize disease spread.</p>
+
+                <h2 class="section-title">Treatment</h2>
+                <p class="section-content">Apply fungicides specifically targeted at Botrytis. Remove and dispose of infected plant material to prevent the spread of the fungus.</p>
+
+                <h2 class="section-title">Recovery</h2>
+                <p class="section-content">Recovery involves maintaining proper plant care and managing environmental conditions to prevent re-infection. Regular monitoring and prompt action are key to managing the disease.</p>
+
+                <h2 class="section-title">Disease Stages</h2>
+                <p class="section-content">The disease progresses from small, water-soaked spots to a dense, grayish mold covering large areas of the plant. Infected fruits and flowers may rot completely.</p>
+
+                <h2 class="section-title">Attack Level</h2>
+                <p class="section-content">Attack levels can range from minor mold on a few plant parts to severe outbreaks affecting entire crops.</p>
+
+            {% elif predict == 'Brown_Rot' %}
+                <h2 class="section-title">Description</h2>
+                <p class="section-content">Brown rot is a serious fungal disease that affects stone fruits like peaches, plums, and cherries. It causes brown, sunken lesions on fruit and can lead to premature fruit drop and significant crop loss.</p>
+
+                <h2 class="section-title">Causes</h2>
+                <p class="section-content">The disease is caused by the fungus Monilinia spp., which infects fruit during wet weather. The fungus can also infect blossoms and young fruit, leading to more extensive damage.</p>
+
+                <h2 class="section-title">Prevention</h2>
+                <p class="section-content">To prevent brown rot, remove and destroy infected fruit and maintain good orchard hygiene. Applying fungicides during the flowering and fruit development stages can help protect against infection.</p>
+
+                <h2 class="section-title">Precautions</h2>
+                <p class="section-content">Avoid overhead irrigation to reduce moisture on fruit. Ensure good air circulation around fruit trees to facilitate drying and reduce the likelihood of infection.</p>
+
+                <h2 class="section-title">Treatment</h2>
+                <p class="section-content">Treat with appropriate fungicides as per recommended schedules. Remove and dispose of any infected plant material to limit the spread of the disease.</p>
+
+                <h2 class="section-title">Recovery</h2>
+                <p class="section-content">Recovery involves regular monitoring and managing environmental conditions to prevent further outbreaks. Maintain good orchard practices to support plant health.</p>
+
+                <h2 class="section-title">Disease Stages</h2>
+                <p class="section-content">The disease progresses from small, brown lesions to large, sunken areas. The infected fruit may eventually rot completely and drop prematurely.</p>
+
+                <h2 class="section-title">Attack Level</h2>
+                <p class="section-content">Attack levels can range from minor fruit lesions to severe outbreaks causing significant crop loss.</p>
+
+            {% elif predict == 'Cedar_Apple_Rust' %}
+                <h2 class="section-title">Description</h2>
+                <p class="section-content">Cedar apple rust is a fungal disease affecting apple and crabapple trees. It causes distinctive orange, gelatinous galls on leaves and fruit, which can reduce plant health and vigor.</p>
+
+                <h2 class="section-title">Causes</h2>
+                <p class="section-content">The disease is caused by the fungus Gymnosporangium juniperi-virginianae. It requires both cedar and apple hosts to complete its life cycle, with spores moving between the two host types.</p>
+
+                <h2 class="section-title">Prevention</h2>
+                <p class="section-content">Use rust-resistant apple varieties and remove nearby cedar trees to reduce infection sources. Apply fungicides during the growing season to protect against rust infection.</p>
+
+                <h2 class="section-title">Precautions</h2>
+                <p class="section-content">Monitor for early signs of the disease and manage environmental conditions to minimize spore dispersal. Ensure proper spacing between trees to reduce humidity and infection risk.</p>
+
+                <h2 class="section-title">Treatment</h2>
+                <p class="section-content">Apply fungicides as a preventive measure and manage host plants to reduce infection pressure. Regular monitoring and timely treatments are essential for effective control.</p>
+
+                <h2 class="section-title">Recovery</h2>
+                <p class="section-content">Recovery involves continued monitoring and managing environmental conditions. Implementing control measures and removing infected plant parts can aid in plant recovery.</p>
+
+                <h2 class="section-title">Disease Stages</h2>
+                <p class="section-content">The disease starts with small, orange spots on leaves and fruit. These spots develop into larger, gelatinous galls that can cause significant damage to plant tissues.</p>
+
+                <h2 class="section-title">Attack Level</h2>
+                <p class="section-content">Attack levels can range from minor leaf spotting to extensive gall formation, affecting plant health and fruit quality.</p>
+
+            {% elif predict == 'Crown_Gall' %}
+                <h2 class="section-title">Description</h2>
+                <p class="section-content">Crown gall is a disease caused by the bacterium Agrobacterium tumefaciens. It leads to tumor-like growths at the base of plants and roots, which can disrupt water and nutrient uptake.</p>
+
+                <h2 class="section-title">Causes</h2>
+                <p class="section-content">The disease is caused by Agrobacterium tumefaciens, which infects plants through wounds or damaged tissues. The bacterium causes uncontrolled cell division, resulting in gall formation.</p>
+
+                <h2 class="section-title">Prevention</h2>
+                <p class="section-content">Use disease-free planting material and avoid wounding plants. Practice good soil management and sanitation to minimize infection risk.</p>
+
+                <h2 class="section-title">Precautions</h2>
+                <p class="section-content">Sanitize tools and equipment to prevent the spread of the bacterium. Monitor plants regularly and manage soil health to reduce the impact of the disease.</p>
+
+                <h2 class="section-title">Treatment</h2>
+                <p class="section-content">There is no chemical treatment for crown gall. Remove and destroy infected plants to prevent the spread of the disease. Implement good cultural practices to manage infection.</p>
+
+                <h2 class="section-title">Recovery</h2>
+                <p class="section-content">Recovery involves removing infected plants and practicing good cultural and soil management practices. Replanting with resistant varieties can help prevent future occurrences.</p>
+
+                <h2 class="section-title">Disease Stages</h2>
+                <p class="section-content">The disease progresses from small, hard galls to larger, tumor-like growths. These growths can interfere with plant growth and lead to stunted or dead plants.</p>
+
+                <h2 class="section-title">Attack Level</h2>
+                <p class="section-content">Attack levels can range from minor gall formation to severe plant stunting and death, depending on the extent of infection and plant susceptibility.</p>
+
+            {% elif predict == 'Downy_Mildew' %}
+                <h2 class="section-title">Description</h2>
+                <p class="section-content">Downy mildew is a fungal disease causing yellow or white spots on the upper surface of leaves and a fuzzy, grayish growth on the underside. It is common in cool, moist conditions and can impact plant health and yield.</p>
+
+                <h2 class="section-title">Causes</h2>
+                <p class="section-content">Caused by fungi from the Peronospora genus, downy mildew infects plants through spores that spread in humid environments. The disease thrives in cool, damp conditions.</p>
+
+                <h2 class="section-title">Prevention</h2>
+                <p class="section-content">Improve air circulation around plants, avoid overcrowding, and ensure proper spacing. Using resistant varieties and applying fungicides can help manage the disease.</p>
+
+                <h2 class="section-title">Precautions</h2>
+                <p class="section-content">Monitor humidity levels and avoid late-season irrigation. Ensure proper plant spacing to facilitate drying and reduce disease spread.</p>
+
+                <h2 class="section-title">Treatment</h2>
+                <p class="section-content">Apply appropriate fungicides and remove infected plant parts to manage the disease. Regular monitoring and prompt action are crucial for effective control.</p>
+
+                <h2 class="section-title">Recovery</h2>
+                <p class="section-content">Recovery involves maintaining proper plant care and managing environmental conditions to prevent re-infection. Regular monitoring and treatment can help plants recover.</p>
+
+                <h2 class="section-title">Disease Stages</h2>
+                <p class="section-content">The disease starts with small, yellow spots on leaves, which develop into larger areas of discoloration. A fuzzy, grayish growth appears on the underside of infected leaves.</p>
+
+                <h2 class="section-title">Attack Level</h2>
+                <p class="section-content">Attack levels can range from localized leaf spots to extensive damage affecting plant growth and yield.</p>
+
+            {% elif predict == 'Fire_Blight' %}
+                <h2 class="section-title">Description</h2>
+                <p class="section-content">Fire blight is a bacterial disease causing blackened, scorched-looking branches and blossoms. It primarily affects members of the Rosaceae family, including apple and pear trees.</p>
+
+                <h2 class="section-title">Causes</h2>
+                <p class="section-content">Caused by the bacterium Erwinia amylovora, which spreads through rain, wind, and insects. The bacteria infect plants through flowers and wounds.</p>
+
+                <h2 class="section-title">Prevention</h2>
+                <p class="section-content">Prune and destroy infected plant parts, use disease-resistant varieties, and apply bactericides during flowering. Managing plant health and avoiding overhead irrigation can also help prevent the disease.</p>
+
+                <h2 class="section-title">Precautions</h2>
+                <p class="section-content">Monitor plants regularly for early signs of infection and avoid wounding plants. Sanitize tools and equipment to prevent the spread of bacteria.</p>
+
+                <h2 class="section-title">Treatment</h2>
+                <p class="section-content">Apply bactericides and remove and destroy infected plant parts. Implement good orchard hygiene practices to manage the disease.</p>
+
+                <h2 class="section-title">Recovery</h2>
+                <p class="section-content">Recovery involves regular monitoring, removing infected material, and practicing good plant care. Maintaining plant health and managing environmental conditions are crucial for preventing re-infection.</p>
+
+                <h2 class="section-title">Disease Stages</h2>
+                <p class="section-content">The disease begins with wilting and blackening of blossoms and branches, progressing to the complete dieback of affected plant parts.</p>
+
+                <h2 class="section-title">Attack Level</h2>
+                <p class="section-content">Attack levels can range from minor branch dieback to severe tree loss, depending on the extent of infection and plant susceptibility.</p>
+        
+                {% elif predict == 'Leaf_Spots' %}
+                <h2 class="section-title">Description</h2>
+                <p class="section-content">Leaf spots are discolored patches on the leaves of plants, which can vary in size, shape, and color. They are often caused by various pathogens, including fungi, bacteria, and viruses.</p>
+            
+                <h2 class="section-title">Causes</h2>
+                <p class="section-content">Leaf spots can be caused by fungal or bacterial infections, environmental stress, or nutrient deficiencies. Spores or pathogens spread through splashing water, wind, or contaminated tools.</p>
+            
+                <h2 class="section-title">Prevention</h2>
+                <p class="section-content">Prevent leaf spots by avoiding overhead watering, maintaining good plant spacing for air circulation, and using disease-free seeds or plants. Regularly inspect plants and remove infected leaves.</p>
+            
+                <h2 class="section-title">Precautions</h2>
+                <p class="section-content">Monitor plants regularly for early signs of infection. Maintain proper sanitation by cleaning tools and equipment, and avoid working with plants when they are wet.</p>
+            
+                <h2 class="section-title">Treatment</h2>
+                <p class="section-content">Treat leaf spots with appropriate fungicides or bactericides, depending on the pathogen. Remove and dispose of infected plant material to reduce disease spread.</p>
+            
+                <h2 class="section-title">Recovery</h2>
+                <p class="section-content">Recovery involves improving plant health through proper watering, fertilization, and pest control. Continue monitoring and managing environmental conditions to support recovery.</p>
+            
+                <h2 class="section-title">Disease Stages</h2>
+                <p class="section-content">Leaf spots usually start as small, dark lesions and can expand into larger patches. The progression depends on the pathogen and environmental conditions.</p>
+            
+                <h2 class="section-title">Attack Level</h2>
+                <p class="section-content">Attack levels can range from minor leaf discoloration to severe defoliation, depending on the severity of the infection and the plant's overall health.</p>
+            
+            {% elif predict == 'Mosaic_Virus' %}
+                <h2 class="section-title">Description</h2>
+                <p class="section-content">Mosaic virus causes mottled or mosaic-like patterns on leaves, with areas of light and dark green. It can lead to reduced plant growth and yield.</p>
+            
+                <h2 class="section-title">Causes</h2>
+                <p class="section-content">Mosaic virus is caused by various viral pathogens transmitted through insects, contaminated tools, or infected plant material.</p>
+            
+                <h2 class="section-title">Prevention</h2>
+                <p class="section-content">Prevent mosaic virus by using virus-free seeds, controlling insect vectors, and practicing good hygiene in the garden. Avoid planting susceptible crops in infected soil.</p>
+            
+                <h2 class="section-title">Precautions</h2>
+                <p class="section-content">Regularly inspect plants for symptoms and control insect populations that can transmit the virus. Remove and destroy infected plants to prevent spread.</p>
+            
+                <h2 class="section-title">Treatment</h2>
+                <p class="section-content">There is no cure for mosaic virus, but you can manage its impact by removing infected plants and controlling insect vectors. Maintain overall plant health to minimize damage.</p>
+            
+                <h2 class="section-title">Recovery</h2>
+                <p class="section-content">Recovery involves removing infected plants and implementing preventive measures to avoid future infections. Proper plant care and insect control can help manage the disease.</p>
+            
+                <h2 class="section-title">Disease Stages</h2>
+                <p class="section-content">Mosaic virus symptoms include mottled or streaked leaves. The disease progresses through the plant, leading to stunted growth and reduced yields.</p>
+            
+                <h2 class="section-title">Attack Level</h2>
+                <p class="section-content">Attack levels can vary from mild symptoms to severe plant damage, affecting overall growth and productivity.</p>
+            
+            {% elif predict == 'Powdery_Mildew' %}
+                <h2 class="section-title">Description</h2>
+                <p class="section-content">Powdery mildew is a fungal disease characterized by white, powdery spots on plant surfaces. It can affect leaves, stems, and buds, leading to reduced plant vigor and yield.</p>
+            
+                <h2 class="section-title">Causes</h2>
+                <p class="section-content">Powdery mildew is caused by fungi from the Erysiphales order. The disease spreads through spores in dry, warm conditions with high humidity.</p>
+            
+                <h2 class="section-title">Prevention</h2>
+                <p class="section-content">Prevent powdery mildew by ensuring adequate air circulation, avoiding overcrowding, and using resistant plant varieties. Regularly monitor and remove infected plant parts.</p>
+            
+                <h2 class="section-title">Precautions</h2>
+                <p class="section-content">Monitor humidity levels and avoid late-season watering. Prune affected areas to improve air circulation and reduce disease spread.</p>
+            
+                <h2 class="section-title">Treatment</h2>
+                <p class="section-content">Treat powdery mildew with appropriate fungicides and remove infected plant parts. Regularly inspect plants and apply treatments as needed for effective control.</p>
+            
+                <h2 class="section-title">Recovery</h2>
+                <p class="section-content">Recovery involves maintaining proper plant care and environmental conditions to prevent re-infection. Regular monitoring and treatment can help plants recover.</p>
+            
+                <h2 class="section-title">Disease Stages</h2>
+                <p class="section-content">The disease starts with small, white powdery spots that expand and coalesce. The infection can cover large areas of plant surfaces if not controlled.</p>
+            
+                <h2 class="section-title">Attack Level</h2>
+                <p class="section-content">Attack levels can range from minor surface growth to extensive coverage affecting plant health and productivity.</p>
+            
+            {% elif predict == 'Verticillium' %}
+                <h2 class="section-title">Description</h2>
+                <p class="section-content">Verticillium wilt is a soil-borne fungal disease that causes wilting, yellowing, and death of plants. It affects a wide range of plants and can be challenging to manage.</p>
+            
+                <h2 class="section-title">Causes</h2>
+                <p class="section-content">Verticillium wilt is caused by fungi from the Verticillium genus, which infect plants through the roots. The disease thrives in soil and can persist for many years.</p>
+            
+                <h2 class="section-title">Prevention</h2>
+                <p class="section-content">Prevent verticillium wilt by using resistant plant varieties, practicing crop rotation, and improving soil drainage. Avoid planting susceptible crops in infected soil.</p>
+            
+                <h2 class="section-title">Precautions</h2>
+                <p class="section-content">Monitor plants for early signs of wilting and manage soil conditions to reduce disease risk. Ensure proper sanitation and avoid introducing infected soil or plants.</p>
+            
+                <h2 class="section-title">Treatment</h2>
+                <p class="section-content">There is no cure for verticillium wilt, but you can manage its effects by removing infected plants and improving soil health. Use fungicides as a last resort and follow recommended practices.</p>
+            
+                <h2 class="section-title">Recovery</h2>
+                <p class="section-content">Recovery involves improving soil conditions and implementing disease management practices to prevent further infection. Regularly monitor plants and maintain proper care.</p>
+            
+                <h2 class="section-title">Disease Stages</h2>
+                <p class="section-content">The disease progresses from initial wilting and yellowing of leaves to complete plant collapse. Symptoms can vary depending on the plant species and environmental conditions.</p>
+            
+                <h2 class="section-title">Attack Level</h2>
+                <p class="section-content">Attack levels can range from localized wilting to severe plant death, significantly affecting plant health and yield.</p>
+            {% endif %}
+            
+        </div>
+    </div>
+{% endif %}
+
+    </div>
+</body>
+</html>
